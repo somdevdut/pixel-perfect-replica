@@ -1,24 +1,50 @@
-# Pixel Perfect Replica
+# PixelForge – Image Compression Tool
 
-Implement exactly the screenshot and nothing else
+A modern, web-based image optimization platform designed to compress, convert, resize and manage images efficiently.
 
-This project was built with [Lovable](https://lovable.dev).
+## Features
 
-## Build with Lovable
+- Multi-format image compression (JPEG, PNG, WebP and AVIF).
+- Batch image processing.
+- ZIP archive downloads.
+- Image resizing and cropping.
+- Image metadata removal.
+- Compression history.
+- User authentication.
+- Storage and compression analytics.
+- Real-time processing progress.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/4d1b29e3-191e-4585-9a44-1850cbc4204b).
+## Technology Stack
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- React.js
+- TypeScript
+- Vite
+- Tailwind CSS
+- Node.js
+- Sharp
+- MySQL
+- Sequelize
 
-## Development
+## Getting Started
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Clone the repository:
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+```bash
+git clone YOUR_REPOSITORY_URL
 ```
+
+Install dependencies:
+
+```bash
+bun install
+```
+
+Start the development server:
+
+```bash
+bun run dev
+```
+
+## Project Purpose
+
+PixelForge demonstrates modern web development, image processing, file handling, batch operations, database management and application security.
