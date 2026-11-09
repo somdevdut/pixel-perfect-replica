@@ -22,6 +22,10 @@ import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard.index'
+import { Route as AuthenticatedDashboardBatchRouteImport } from './routes/_authenticated/dashboard.batch'
+import { Route as AuthenticatedDashboardCompressRouteImport } from './routes/_authenticated/dashboard.compress'
+import { Route as AuthenticatedDashboardConvertRouteImport } from './routes/_authenticated/dashboard.convert'
+import { Route as AuthenticatedDashboardResizeRouteImport } from './routes/_authenticated/dashboard.resize'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -88,6 +92,30 @@ const AuthenticatedDashboardIndexRoute =
     path: '/',
     getParentRoute: () => AuthenticatedDashboardRoute,
   } as any)
+const AuthenticatedDashboardBatchRoute =
+  AuthenticatedDashboardBatchRouteImport.update({
+    id: '/batch',
+    path: '/batch',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardCompressRoute =
+  AuthenticatedDashboardCompressRouteImport.update({
+    id: '/compress',
+    path: '/compress',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardConvertRoute =
+  AuthenticatedDashboardConvertRouteImport.update({
+    id: '/convert',
+    path: '/convert',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardResizeRoute =
+  AuthenticatedDashboardResizeRouteImport.update({
+    id: '/resize',
+    path: '/resize',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -101,6 +129,10 @@ export interface FileRoutesByFullPath {
   '/reset-password': typeof ResetPasswordRoute
   '/terms': typeof TermsRoute
   '/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/dashboard/batch': typeof AuthenticatedDashboardBatchRoute
+  '/dashboard/compress': typeof AuthenticatedDashboardCompressRoute
+  '/dashboard/convert': typeof AuthenticatedDashboardConvertRoute
+  '/dashboard/resize': typeof AuthenticatedDashboardResizeRoute
   '/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesByTo {
@@ -114,6 +146,10 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/reset-password': typeof ResetPasswordRoute
   '/terms': typeof TermsRoute
+  '/dashboard/batch': typeof AuthenticatedDashboardBatchRoute
+  '/dashboard/compress': typeof AuthenticatedDashboardCompressRoute
+  '/dashboard/convert': typeof AuthenticatedDashboardConvertRoute
+  '/dashboard/resize': typeof AuthenticatedDashboardResizeRoute
   '/dashboard': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -130,6 +166,10 @@ export interface FileRoutesById {
   '/reset-password': typeof ResetPasswordRoute
   '/terms': typeof TermsRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/_authenticated/dashboard/batch': typeof AuthenticatedDashboardBatchRoute
+  '/_authenticated/dashboard/compress': typeof AuthenticatedDashboardCompressRoute
+  '/_authenticated/dashboard/convert': typeof AuthenticatedDashboardConvertRoute
+  '/_authenticated/dashboard/resize': typeof AuthenticatedDashboardResizeRoute
   '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRouteTypes {
@@ -146,6 +186,10 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/terms'
     | '/dashboard'
+    | '/dashboard/batch'
+    | '/dashboard/compress'
+    | '/dashboard/convert'
+    | '/dashboard/resize'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -159,6 +203,10 @@ export interface FileRouteTypes {
     | '/register'
     | '/reset-password'
     | '/terms'
+    | '/dashboard/batch'
+    | '/dashboard/compress'
+    | '/dashboard/convert'
+    | '/dashboard/resize'
     | '/dashboard'
   id:
     | '__root__'
@@ -174,6 +222,10 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/terms'
     | '/_authenticated/dashboard'
+    | '/_authenticated/dashboard/batch'
+    | '/_authenticated/dashboard/compress'
+    | '/_authenticated/dashboard/convert'
+    | '/_authenticated/dashboard/resize'
     | '/_authenticated/dashboard/'
   fileRoutesById: FileRoutesById
 }
@@ -284,15 +336,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
       parentRoute: typeof AuthenticatedDashboardRoute
     }
+    '/_authenticated/dashboard/batch': {
+      id: '/_authenticated/dashboard/batch'
+      path: '/batch'
+      fullPath: '/dashboard/batch'
+      preLoaderRoute: typeof AuthenticatedDashboardBatchRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/compress': {
+      id: '/_authenticated/dashboard/compress'
+      path: '/compress'
+      fullPath: '/dashboard/compress'
+      preLoaderRoute: typeof AuthenticatedDashboardCompressRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/convert': {
+      id: '/_authenticated/dashboard/convert'
+      path: '/convert'
+      fullPath: '/dashboard/convert'
+      preLoaderRoute: typeof AuthenticatedDashboardConvertRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/resize': {
+      id: '/_authenticated/dashboard/resize'
+      path: '/resize'
+      fullPath: '/dashboard/resize'
+      preLoaderRoute: typeof AuthenticatedDashboardResizeRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
   }
 }
 
 interface AuthenticatedDashboardRouteChildren {
+  AuthenticatedDashboardBatchRoute: typeof AuthenticatedDashboardBatchRoute
+  AuthenticatedDashboardCompressRoute: typeof AuthenticatedDashboardCompressRoute
+  AuthenticatedDashboardConvertRoute: typeof AuthenticatedDashboardConvertRoute
+  AuthenticatedDashboardResizeRoute: typeof AuthenticatedDashboardResizeRoute
   AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
 }
 
 const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
   {
+    AuthenticatedDashboardBatchRoute: AuthenticatedDashboardBatchRoute,
+    AuthenticatedDashboardCompressRoute: AuthenticatedDashboardCompressRoute,
+    AuthenticatedDashboardConvertRoute: AuthenticatedDashboardConvertRoute,
+    AuthenticatedDashboardResizeRoute: AuthenticatedDashboardResizeRoute,
     AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
   }
 
