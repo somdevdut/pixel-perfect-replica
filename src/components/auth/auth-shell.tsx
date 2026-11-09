@@ -55,9 +55,6 @@ export function SocialButtons() {
         {GOOGLE_SVG}
         Continue with Google
       </button>
-      <button type="button" className="lovable-auth-button w-full" onClick={() => go("lovable")} disabled={!!busy}>
-        Continue with Lovable
-      </button>
     </div>
   );
 }
