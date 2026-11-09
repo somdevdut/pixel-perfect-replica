@@ -156,6 +156,13 @@
   background-size: 16px 16px;
   background-position: 0 0, 0 8px, 8px -8px, -8px 0;
 }
+/* Google's required light-theme sign-in button colours (brand guidelines, not app tokens). */
+.google-btn {
+  background-color: #ffffff;
+  border: 1px solid #747775;
+  color: #1f1f1f;
+}
+
 @utility tabular {
   font-variant-numeric: tabular-nums;
 }
