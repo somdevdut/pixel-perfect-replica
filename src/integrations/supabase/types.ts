@@ -14,7 +14,172 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      compression_stats: {
+        Row: {
+          compression_ratio: number
+          created_at: string
+          id: string
+          job_id: string
+          storage_saved: number
+          total_compressed_size: number
+          total_original_size: number
+          user_id: string
+        }
+        Insert: {
+          compression_ratio?: number
+          created_at?: string
+          id?: string
+          job_id: string
+          storage_saved?: number
+          total_compressed_size?: number
+          total_original_size?: number
+          user_id?: string
+        }
+        Update: {
+          compression_ratio?: number
+          created_at?: string
+          id?: string
+          job_id?: string
+          storage_saved?: number
+          total_compressed_size?: number
+          total_original_size?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "compression_stats_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      files: {
+        Row: {
+          compressed_size: number | null
+          created_at: string
+          error_message: string | null
+          height: number | null
+          id: string
+          job_id: string
+          metadata_stripped: boolean
+          original_filename: string
+          original_format: string
+          original_size: number
+          output_format: string
+          status: string
+          storage_url: string | null
+          user_id: string
+          width: number | null
+        }
+        Insert: {
+          compressed_size?: number | null
+          created_at?: string
+          error_message?: string | null
+          height?: number | null
+          id?: string
+          job_id: string
+          metadata_stripped?: boolean
+          original_filename: string
+          original_format: string
+          original_size?: number
+          output_format: string
+          status?: string
+          storage_url?: string | null
+          user_id?: string
+          width?: number | null
+        }
+        Update: {
+          compressed_size?: number | null
+          created_at?: string
+          error_message?: string | null
+          height?: number | null
+          id?: string
+          job_id?: string
+          metadata_stripped?: boolean
+          original_filename?: string
+          original_format?: string
+          original_size?: number
+          output_format?: string
+          status?: string
+          storage_url?: string | null
+          user_id?: string
+          width?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "files_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      jobs: {
+        Row: {
+          completed_at: string | null
+          completed_files: number
+          compressed_total_size: number
+          created_at: string
+          failed_files: number
+          id: string
+          job_type: string
+          original_total_size: number
+          status: string
+          total_files: number
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          completed_files?: number
+          compressed_total_size?: number
+          created_at?: string
+          failed_files?: number
+          id?: string
+          job_type: string
+          original_total_size?: number
+          status?: string
+          total_files?: number
+          user_id?: string
+        }
+        Update: {
+          completed_at?: string | null
+          completed_files?: number
+          compressed_total_size?: number
+          created_at?: string
+          failed_files?: number
+          id?: string
+          job_type?: string
+          original_total_size?: number
+          status?: string
+          total_files?: number
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          full_name: string
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          full_name?: string
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          full_name?: string
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
