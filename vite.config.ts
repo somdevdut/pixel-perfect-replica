@@ -15,4 +15,9 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  vite: {
+    // jSquash ships WASM codecs resolved via import.meta.url; pre-bundling breaks those URLs.
+    optimizeDeps: { exclude: ["@jsquash/avif"] },
+    worker: { format: "es" },
+  },
 });
